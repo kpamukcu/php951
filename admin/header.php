@@ -35,6 +35,7 @@ if(!isset($_SESSION['kadi'])){
             <div class="row" style="height: 96.5vh;">
                 <div class="col-md-2 bg-dark py-3" id="adminNav">
                     <a href="dashboard.php">Başlangıç</a><br>
+                    <a href="kategoriler.php">Kategoriler</a><br>
                     <a href="logout.php" class="text-warning">Güvenli Çıkış</a>
                 </div>
                 <div class="col-md-10 bg-light py-3">
