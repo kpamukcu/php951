@@ -1,4 +1,22 @@
-<?php require_once('header.php'); ?>
+<?php 
+require_once('header.php'); 
+
+if(isset($_GET['katDelete'])){
+    $id = $_GET['katDelete'];
+
+    $katSil = $db -> prepare('delete from kategoriler where id=?');
+    $katSil -> execute(array($id));
+
+    if($katSil -> rowCount()){
+        echo '<script>alert("Kayıt Silindi")</script><meta http-equiv="refresh" content="1; url=kategoriler.php">';
+    } else {
+        echo '<script>alert("Kayıt Silinemedi")</script><meta http-equiv="refresh" content="1; url=kategoriler.php">';
+    }
+}
+?>
+
+
+
 <!-- Admin Body Section Start -->
 <div class="row">
     <div class="col-12">
@@ -44,7 +62,42 @@
     </div>
 
     <div class="col-md-9">
-        Tablo Gelecek
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Türü</th>
+                    <th>Üst Kat.</th>
+                    <th>Açıklama</th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                $katSec = $db->prepare('select * from kategoriler order by katAdi asc');
+                $katSec->execute();
+
+                if ($katSec->rowCount()) {
+                    foreach ($katSec as $katSecSatir) {
+                ?>
+                        <tr>
+                            <td><?php echo $katSecSatir['katAdi']; ?></td>
+                            <td><?php echo $katSecSatir['katTuru']; ?></td>
+                            <td><?php echo $katSecSatir['ustKat']; ?></td>
+                            <td><?php echo $katSecSatir['aciklama']; ?></td>
+                            <td><a href="" class="btn btn-warning">Düzenle</a></td>
+                            <td>
+                                <a href="kategoriler.php?katDelete=<?php echo $katSecSatir['id']; ?>" class="btn btn-danger">Sil</a>
+                            </td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
     </div>
 </div>
 <!-- Admin Body Section End -->
