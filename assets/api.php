@@ -1,7 +1,7 @@
 <?php
 
 header('Content-Type:application/json');
-require_once('./assets/baglan.php');
+require_once('baglan.php');
 
 $kategoriler = $db->prepare('select * from kategoriler');
 $kategoriler->execute();
