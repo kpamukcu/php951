@@ -1,6 +1,8 @@
 <?php
 
-header('Content-Type:application/json');
+header('Content-Type:application/json'); //Kendi sitemiz içinde
+// header("Access-Control-Allow-Origin: *"); // Tüm domain'lerin bu API'ye erişmesine izin verir.
+header("Access-Control-Allow-Origin: https://frontend-sitem.com"); // Sadece belli bir domain’e izin vermek istersen
 require_once('baglan.php');
 
 $kategoriler = $db->prepare('select * from kategoriler');
