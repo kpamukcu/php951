@@ -9,14 +9,17 @@
     gap: 5px;
 }
 
-.bi{font-size: 24px;}
+.bi{
+    font-size: 24px;
+    color: #393939;
+}
 
 .social{
     display: flex;
     column-gap: 15px;
 }
 
-#footer, #footer a{
+#footer, #footer a, #footer .bi{
     color:#fff;
 }
 

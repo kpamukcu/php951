@@ -6,8 +6,9 @@ if (isset($_GET['postID'])) {
     $article = $db->prepare('select * from yazilar where id=?');
     $article->execute(array($id));
     $articleSatir = $article->fetch();
+} else {
+    echo '<meta http-equiv="refresh" content="0; url=blog.php">';
 }
-
 ?>
 
 <!-- Content Section Start -->
@@ -26,6 +27,25 @@ if (isset($_GET['postID'])) {
                     <small>Tarih: <?php echo $articleSatir['tarih']; ?> / XX Yorum</small>
                 </div>
                 <?php echo $articleSatir['aciklama']; ?>
+
+                <!-- Yorum Alanı Start -->
+                <div class="mt-3">
+                    <h3>Yorumlar</h3>
+                    <b>VT'den bilgi çek</b>
+                </div>
+                <hr>
+                <div class="w-75">
+                    <h3>Yorum Yapın</h3>
+                    <form action="" method="post" class="row px-3" style="row-gap:10px">
+                        <input type="text" name="isim" placeholder="Adınız Soyadınız" class="form-control" required>
+                        <input type="email" name="eposta" placeholder="E-Posta Adresiniz" class="form-control" required>
+                        <textarea name="yorum" placeholder="Yorumunuz" rows="5" class="form-control"></textarea>
+                        <input type="hidden" name="blogAdi" value="<?php echo $articleSatir['baslik']; ?>">
+                        <input type="submit" value="Gönder" class="btn btn-success" name="yorumYap">
+                    </form>
+                </div>
+                <!-- Yorum Alanı End -->
+
             </div>
             <?php require_once('aside.php'); ?>
         </div>
