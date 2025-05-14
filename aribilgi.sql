@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 May 2025, 20:43:52
+-- Üretim Zamanı: 14 May 2025, 20:43:43
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -105,6 +105,31 @@ INSERT INTO `portfolyo` (`id`, `projeAdi`, `aciklama`, `kurum`, `projeTuru`, `hi
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `reklam_talep`
+--
+
+CREATE TABLE `reklam_talep` (
+  `id` int(11) NOT NULL,
+  `isim` varchar(30) NOT NULL,
+  `telefon` varchar(15) NOT NULL,
+  `eposta` varchar(50) NOT NULL,
+  `adres` varchar(50) NOT NULL,
+  `gorsel` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `reklam_talep`
+--
+
+INSERT INTO `reklam_talep` (`id`, `isim`, `telefon`, `eposta`, `adres`, `gorsel`) VALUES
+(1, 'Hayko Cepkin', '0555 555 5555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp'),
+(2, 'Mahmut Tuncer', '0555 444 4444', 'mamo@mahmut.com', 'https://www.mahmuttuncer.com', './assets/img/avatar-500x500.webp'),
+(3, 'Hayko Cepkin', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp'),
+(4, 'Mahmut Tuncer', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `yazilar`
 --
 
@@ -158,6 +183,12 @@ ALTER TABLE `portfolyo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `reklam_talep`
+--
+ALTER TABLE `reklam_talep`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `yazilar`
 --
 ALTER TABLE `yazilar`
@@ -184,6 +215,12 @@ ALTER TABLE `kategoriler`
 --
 ALTER TABLE `portfolyo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `reklam_talep`
+--
+ALTER TABLE `reklam_talep`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `yazilar`
