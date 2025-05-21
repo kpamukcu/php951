@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 May 2025, 20:43:43
+-- Üretim Zamanı: 21 May 2025, 20:53:22
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -114,18 +114,20 @@ CREATE TABLE `reklam_talep` (
   `telefon` varchar(15) NOT NULL,
   `eposta` varchar(50) NOT NULL,
   `adres` varchar(50) NOT NULL,
-  `gorsel` varchar(50) NOT NULL
+  `gorsel` varchar(50) NOT NULL,
+  `durum` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Tablo döküm verisi `reklam_talep`
 --
 
-INSERT INTO `reklam_talep` (`id`, `isim`, `telefon`, `eposta`, `adres`, `gorsel`) VALUES
-(1, 'Hayko Cepkin', '0555 555 5555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp'),
-(2, 'Mahmut Tuncer', '0555 444 4444', 'mamo@mahmut.com', 'https://www.mahmuttuncer.com', './assets/img/avatar-500x500.webp'),
-(3, 'Hayko Cepkin', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp'),
-(4, 'Mahmut Tuncer', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp');
+INSERT INTO `reklam_talep` (`id`, `isim`, `telefon`, `eposta`, `adres`, `gorsel`, `durum`) VALUES
+(1, 'Hayko Cepkin', '0555 555 5555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp', 'Bekliyor'),
+(2, 'Mahmut Tuncer', '0555 444 4444', 'mamo@mahmut.com', 'https://www.mahmuttuncer.com', './assets/img/avatar-500x500.webp', 'Bekliyor'),
+(3, 'Hayko Cepkin', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp', 'Bekliyor'),
+(4, 'Mahmut Tuncer', '05555555555', 'haykoilecos@hayko.com', 'https://www.haykocepkin.com', './assets/img/avatar-500x500.webp', 'Bekliyor'),
+(5, 'Yıldız Tilbe', '05555555555', 'kaanpamukcu@gmail.com', 'https://www.haykocepkin.com', './assets/img/web-tasarimi-hizmeti-348x232.jpg', 'Onaylandı');
 
 -- --------------------------------------------------------
 
@@ -159,6 +161,29 @@ INSERT INTO `yazilar` (`id`, `baslik`, `aciklama`, `meta`, `durum`, `tarih`, `ka
 (10, 'Blog Yazısı Başlık 8', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan, tortor auctor condimentum ullamcorper, odio enim blandit lorem, ac semper nisl purus vitae nunc. Aliquam erat volutpat. Phasellus imperdiet lectus id faucibus commodo. Pellentesque rutrum erat in sem tristique, eget imperdiet eros pellentesque. Mauris sed nulla ultricies, blandit mi et, pretium nunc. Curabitur et orci pulvinar, feugiat lorem quis, vehicula nisi. Fusce ut luctus nulla. Nullam nec eros quis nisl ultrices venenatis ac et neque. Pellentesque vitae elementum orci, a congue massa. Nulla accumsan, tellus eget efficitur hendrerit, erat purus facilisis arcu, ut lobortis justo est ac arcu. Donec gravida nibh tellus, at condimentum turpis feugiat in. Cras vel porta nisi. Nunc accumsan non ex eleifend congue. Suspendisse urna libero, iaculis id pharetra vel, volutpat sed odio. Nam ac leo dapibus, viverra eros vitae, vestibulum arcu.</p><p>Proin placerat nibh porttitor, euismod neque eget, sollicitudin ipsum. In non elit lobortis, pharetra lectus ut, consequat sapien. Sed eu velit auctor, faucibus massa in, convallis enim. Integer rutrum, quam vitae tincidunt imperdiet, neque dolor convallis leo, eget ullamcorper velit arcu ac risus. Sed congue, neque vel fermentum pellentesque, velit dolor hendrerit orci, in consequat orci elit quis orci. Nunc mollis, diam id fermentum fringilla, ante lectus sagittis nisi, sit amet congue odio sapien convallis nibh. Donec ut elementum nibh. Curabitur quam nunc, feugiat non felis eget, rutrum tristique metus. Suspendisse eget accumsan enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eu augue consectetur, tempor ex ut, gravida dolor. Vestibulum vel rhoncus ante. Quisque quis finibus diam, vitae iaculis lacus. Praesent semper tellus vel nulla lobortis tempor. Nullam non pretium nulla, sed ultrices lorem. Curabitur viverra eget nisi eget pellentesque.</p><p>Suspendisse blandit eleifend dapibus. Aliquam efficitur urna cursus mauris hendrerit, et pharetra justo maximus. Etiam pretium augue ipsum, vitae imperdiet mi semper viverra. Quisque quis sapien quis turpis ullamcorper scelerisque eget id nulla. Sed auctor, tellus quis egestas iaculis, sapien neque porta risus, sed blandit nibh dui in neque. In hac habitasse platea dictumst. Ut non efficitur ante.</p><p>Praesent dignissim vel ligula id semper. In laoreet maximus ex, non egestas est ullamcorper at. Ut arcu lorem, molestie vel efficitur id, tristique ac odio. Sed maximus varius libero aliquam vehicula. Donec dignissim vulputate tellus, a efficitur magna pulvinar non. Donec auctor, est commodo cursus sollicitudin, nibh lacus feugiat ante, sit amet ullamcorper erat nibh cursus diam. Fusce pretium, lorem in laoreet bibendum, justo arcu ornare est, sed pharetra erat nisl eu nisi. Suspendisse facilisis orci eget tempus interdum. Ut luctus felis et ex hendrerit, eget placerat nunc maximus. Morbi commodo nunc et magna dapibus, vitae scelerisque purus sollicitudin. Vestibulum id enim posuere, venenatis eros eu, varius ligula. Nam in diam pulvinar felis tincidunt rutrum. Etiam facilisis dapibus neque, sed ultricies metus consectetur vel. Duis porttitor, nisl at semper congue, nisi metus dictum turpis, ullamcorper feugiat libero orci ut diam. Vestibulum pharetra ex a sapien semper luctus. Aenean nec enim in sapien tincidunt bibendum.</p><p>Praesent pharetra odio velit, ac pharetra lacus tempor vel. Nunc lobortis nisl et pretium ullamcorper. Cras non nisl euismod justo faucibus dignissim a at justo. Nullam gravida urna eu viverra maximus. Morbi lacinia facilisis sollicitudin. Mauris iaculis at sapien at rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dictum massa, nec imperdiet elit. Aliquam dapibus volutpat tellus. Nullam eu nibh eu metus venenatis faucibus. Nulla placerat nunc odio, in faucibus purus faucibus in. Suspendisse ultrices eu sem et efficitur. Nullam suscipit, dolor a fringilla imperdiet, sapien turpis commodo metus, a pellentesque lacus ligula id eros. Sed congue turpis eu metus maximus, at eleifend nibh imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Yayında', '2025-04-28', 'Web Tasarımı', '../assets/img/foto (8).jpg'),
 (11, 'Blog Yazısı Başlık 9', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan, tortor auctor condimentum ullamcorper, odio enim blandit lorem, ac semper nisl purus vitae nunc. Aliquam erat volutpat. Phasellus imperdiet lectus id faucibus commodo. Pellentesque rutrum erat in sem tristique, eget imperdiet eros pellentesque. Mauris sed nulla ultricies, blandit mi et, pretium nunc. Curabitur et orci pulvinar, feugiat lorem quis, vehicula nisi. Fusce ut luctus nulla. Nullam nec eros quis nisl ultrices venenatis ac et neque. Pellentesque vitae elementum orci, a congue massa. Nulla accumsan, tellus eget efficitur hendrerit, erat purus facilisis arcu, ut lobortis justo est ac arcu. Donec gravida nibh tellus, at condimentum turpis feugiat in. Cras vel porta nisi. Nunc accumsan non ex eleifend congue. Suspendisse urna libero, iaculis id pharetra vel, volutpat sed odio. Nam ac leo dapibus, viverra eros vitae, vestibulum arcu.</p><p>Proin placerat nibh porttitor, euismod neque eget, sollicitudin ipsum. In non elit lobortis, pharetra lectus ut, consequat sapien. Sed eu velit auctor, faucibus massa in, convallis enim. Integer rutrum, quam vitae tincidunt imperdiet, neque dolor convallis leo, eget ullamcorper velit arcu ac risus. Sed congue, neque vel fermentum pellentesque, velit dolor hendrerit orci, in consequat orci elit quis orci. Nunc mollis, diam id fermentum fringilla, ante lectus sagittis nisi, sit amet congue odio sapien convallis nibh. Donec ut elementum nibh. Curabitur quam nunc, feugiat non felis eget, rutrum tristique metus. Suspendisse eget accumsan enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eu augue consectetur, tempor ex ut, gravida dolor. Vestibulum vel rhoncus ante. Quisque quis finibus diam, vitae iaculis lacus. Praesent semper tellus vel nulla lobortis tempor. Nullam non pretium nulla, sed ultrices lorem. Curabitur viverra eget nisi eget pellentesque.</p><p>Suspendisse blandit eleifend dapibus. Aliquam efficitur urna cursus mauris hendrerit, et pharetra justo maximus. Etiam pretium augue ipsum, vitae imperdiet mi semper viverra. Quisque quis sapien quis turpis ullamcorper scelerisque eget id nulla. Sed auctor, tellus quis egestas iaculis, sapien neque porta risus, sed blandit nibh dui in neque. In hac habitasse platea dictumst. Ut non efficitur ante.</p><p>Praesent dignissim vel ligula id semper. In laoreet maximus ex, non egestas est ullamcorper at. Ut arcu lorem, molestie vel efficitur id, tristique ac odio. Sed maximus varius libero aliquam vehicula. Donec dignissim vulputate tellus, a efficitur magna pulvinar non. Donec auctor, est commodo cursus sollicitudin, nibh lacus feugiat ante, sit amet ullamcorper erat nibh cursus diam. Fusce pretium, lorem in laoreet bibendum, justo arcu ornare est, sed pharetra erat nisl eu nisi. Suspendisse facilisis orci eget tempus interdum. Ut luctus felis et ex hendrerit, eget placerat nunc maximus. Morbi commodo nunc et magna dapibus, vitae scelerisque purus sollicitudin. Vestibulum id enim posuere, venenatis eros eu, varius ligula. Nam in diam pulvinar felis tincidunt rutrum. Etiam facilisis dapibus neque, sed ultricies metus consectetur vel. Duis porttitor, nisl at semper congue, nisi metus dictum turpis, ullamcorper feugiat libero orci ut diam. Vestibulum pharetra ex a sapien semper luctus. Aenean nec enim in sapien tincidunt bibendum.</p><p>Praesent pharetra odio velit, ac pharetra lacus tempor vel. Nunc lobortis nisl et pretium ullamcorper. Cras non nisl euismod justo faucibus dignissim a at justo. Nullam gravida urna eu viverra maximus. Morbi lacinia facilisis sollicitudin. Mauris iaculis at sapien at rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dictum massa, nec imperdiet elit. Aliquam dapibus volutpat tellus. Nullam eu nibh eu metus venenatis faucibus. Nulla placerat nunc odio, in faucibus purus faucibus in. Suspendisse ultrices eu sem et efficitur. Nullam suscipit, dolor a fringilla imperdiet, sapien turpis commodo metus, a pellentesque lacus ligula id eros. Sed congue turpis eu metus maximus, at eleifend nibh imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Yayında', '2025-04-28', 'Grafik Tasarımı', '../assets/img/foto (9).jpg'),
 (12, 'Blog Yazısı Başlık 10', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan, tortor auctor condimentum ullamcorper, odio enim blandit lorem, ac semper nisl purus vitae nunc. Aliquam erat volutpat. Phasellus imperdiet lectus id faucibus commodo. Pellentesque rutrum erat in sem tristique, eget imperdiet eros pellentesque. Mauris sed nulla ultricies, blandit mi et, pretium nunc. Curabitur et orci pulvinar, feugiat lorem quis, vehicula nisi. Fusce ut luctus nulla. Nullam nec eros quis nisl ultrices venenatis ac et neque. Pellentesque vitae elementum orci, a congue massa. Nulla accumsan, tellus eget efficitur hendrerit, erat purus facilisis arcu, ut lobortis justo est ac arcu. Donec gravida nibh tellus, at condimentum turpis feugiat in. Cras vel porta nisi. Nunc accumsan non ex eleifend congue. Suspendisse urna libero, iaculis id pharetra vel, volutpat sed odio. Nam ac leo dapibus, viverra eros vitae, vestibulum arcu.</p><p>Proin placerat nibh porttitor, euismod neque eget, sollicitudin ipsum. In non elit lobortis, pharetra lectus ut, consequat sapien. Sed eu velit auctor, faucibus massa in, convallis enim. Integer rutrum, quam vitae tincidunt imperdiet, neque dolor convallis leo, eget ullamcorper velit arcu ac risus. Sed congue, neque vel fermentum pellentesque, velit dolor hendrerit orci, in consequat orci elit quis orci. Nunc mollis, diam id fermentum fringilla, ante lectus sagittis nisi, sit amet congue odio sapien convallis nibh. Donec ut elementum nibh. Curabitur quam nunc, feugiat non felis eget, rutrum tristique metus. Suspendisse eget accumsan enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eu augue consectetur, tempor ex ut, gravida dolor. Vestibulum vel rhoncus ante. Quisque quis finibus diam, vitae iaculis lacus. Praesent semper tellus vel nulla lobortis tempor. Nullam non pretium nulla, sed ultrices lorem. Curabitur viverra eget nisi eget pellentesque.</p><p>Suspendisse blandit eleifend dapibus. Aliquam efficitur urna cursus mauris hendrerit, et pharetra justo maximus. Etiam pretium augue ipsum, vitae imperdiet mi semper viverra. Quisque quis sapien quis turpis ullamcorper scelerisque eget id nulla. Sed auctor, tellus quis egestas iaculis, sapien neque porta risus, sed blandit nibh dui in neque. In hac habitasse platea dictumst. Ut non efficitur ante.</p><p>Praesent dignissim vel ligula id semper. In laoreet maximus ex, non egestas est ullamcorper at. Ut arcu lorem, molestie vel efficitur id, tristique ac odio. Sed maximus varius libero aliquam vehicula. Donec dignissim vulputate tellus, a efficitur magna pulvinar non. Donec auctor, est commodo cursus sollicitudin, nibh lacus feugiat ante, sit amet ullamcorper erat nibh cursus diam. Fusce pretium, lorem in laoreet bibendum, justo arcu ornare est, sed pharetra erat nisl eu nisi. Suspendisse facilisis orci eget tempus interdum. Ut luctus felis et ex hendrerit, eget placerat nunc maximus. Morbi commodo nunc et magna dapibus, vitae scelerisque purus sollicitudin. Vestibulum id enim posuere, venenatis eros eu, varius ligula. Nam in diam pulvinar felis tincidunt rutrum. Etiam facilisis dapibus neque, sed ultricies metus consectetur vel. Duis porttitor, nisl at semper congue, nisi metus dictum turpis, ullamcorper feugiat libero orci ut diam. Vestibulum pharetra ex a sapien semper luctus. Aenean nec enim in sapien tincidunt bibendum.</p><p>Praesent pharetra odio velit, ac pharetra lacus tempor vel. Nunc lobortis nisl et pretium ullamcorper. Cras non nisl euismod justo faucibus dignissim a at justo. Nullam gravida urna eu viverra maximus. Morbi lacinia facilisis sollicitudin. Mauris iaculis at sapien at rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut dictum massa, nec imperdiet elit. Aliquam dapibus volutpat tellus. Nullam eu nibh eu metus venenatis faucibus. Nulla placerat nunc odio, in faucibus purus faucibus in. Suspendisse ultrices eu sem et efficitur. Nullam suscipit, dolor a fringilla imperdiet, sapien turpis commodo metus, a pellentesque lacus ligula id eros. Sed congue turpis eu metus maximus, at eleifend nibh imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'Taslak', '2025-04-28', 'Dijital Pazarlama', '../assets/img/foto (1).jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `yorumlar`
+--
+
+CREATE TABLE `yorumlar` (
+  `id` int(11) NOT NULL,
+  `isim` varchar(50) NOT NULL,
+  `eposta` varchar(75) NOT NULL,
+  `yorum` text NOT NULL,
+  `yaziID` varchar(5) NOT NULL,
+  `durum` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `yorumlar`
+--
+
+INSERT INTO `yorumlar` (`id`, `isim`, `eposta`, `yorum`, `yaziID`, `durum`) VALUES
+(1, 'Hayko Cepkin', 'haykoilecos@hayko.com', 'Bu blog yazısı resmen bertaraf et şarkımdan daha iyi', '11', 'Onaylanmadı'),
+(2, 'Mahmut Tuncer', 'mamo@mahmut.com', 'Halay ile Coş', '10', 'Onaylanmadı');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -195,6 +220,12 @@ ALTER TABLE `yazilar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `yorumlar`
+--
+ALTER TABLE `yorumlar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -220,13 +251,19 @@ ALTER TABLE `portfolyo`
 -- Tablo için AUTO_INCREMENT değeri `reklam_talep`
 --
 ALTER TABLE `reklam_talep`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `yazilar`
 --
 ALTER TABLE `yazilar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `yorumlar`
+--
+ALTER TABLE `yorumlar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
