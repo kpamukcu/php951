@@ -40,7 +40,7 @@ if (isset($_GET['postID'])) {
                         <input type="text" name="isim" placeholder="Adınız Soyadınız" class="form-control" required>
                         <input type="email" name="eposta" placeholder="E-Posta Adresiniz" class="form-control" required>
                         <textarea name="yorum" placeholder="Yorumunuz" rows="5" class="form-control"></textarea>
-                        <input type="hidden" name="blogAdi" value="<?php echo $articleSatir['baslik']; ?>">
+                        <input type="hidden" name="blog" value="<?php echo $articleSatir['id']; ?>">
                         <input type="submit" value="Gönder" class="btn btn-success" name="yorumYap">
                     </form>
                 </div>
@@ -52,5 +52,46 @@ if (isset($_GET['postID'])) {
     </div>
 </section>
 <!-- Content Section End -->
+
+
+<!-- Yorum Add Module Start -->
+<?php
+if (isset($_POST['yorumYap'])) {
+    $yorumEkle = $db->prepare('insert into yorumlar(isim,eposta,yorum,yaziID,durum) values(?,?,?,?,?)');
+    $yorumEkle->execute(array($_POST['isim'], $_POST['eposta'], $_POST['yorum'], $_POST['blog'], 'Onaylanmadı'));
+
+    if ($yorumEkle->rowCount()) {
+        echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let toastEl = document.getElementById("liveToast");
+                let toast = new bootstrap.Toast(toastEl, {
+                delay: 2000 // 2 saniye görünür
+                });
+
+                toast.show();
+
+                toastEl.addEventListener("hidden.bs.toast", function () {
+                window.location.href = "makale.php?postID='.$articleSatir['id'].'";
+                });
+            });
+            </script>';
+    } else {
+        echo '<script>alert("Hata")</script>';
+    }
+}
+?>
+<!-- Yorum Add Module End -->
+<!-- Toast Alert Start -->
+<div class="position-fixed p-3" style="z-index: 1100; right:0px; top:0px;">
+    <div id="liveToast" class="toast align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Yorumunuz Admin Onayına Gönderildi
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Kapat"></button>
+        </div>
+    </div>
+</div>
+<!-- Toast Alert End -->
 
 <?php require_once('footer.php'); ?>
