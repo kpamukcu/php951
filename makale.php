@@ -3,11 +3,14 @@ require_once('header.php');
 
 if (isset($_GET['postID'])) {
     $id = $_GET['postID'];
-    $article = $db->prepare('select * from yazilar where id=?');
-    $article->execute(array($id));
-    $articleSatir = $article->fetch();
-} else {
-    echo '<meta http-equiv="refresh" content="0; url=blog.php">';
+
+    if ($id != '') {
+        $article = $db->prepare('select * from yazilar where id=?');
+        $article->execute(array($id));
+        $articleSatir = $article->fetch();
+    } else {
+        echo '<meta http-equiv="refresh" content="0; url=blog.php">';
+    }
 }
 ?>
 
@@ -31,9 +34,25 @@ if (isset($_GET['postID'])) {
                 <!-- Yorum Alanı Start -->
                 <div class="mt-3">
                     <h3>Yorumlar</h3>
-                    <b>VT'den bilgi çek</b>
+                    <?php
+                    if (isset($_GET['postID'])) {
+                        $id = $_GET['postID'];
+
+                        $yorumCek = $db->prepare('select * from yorumlar where yaziID=? and durum="Onaylandı"');
+                        $yorumCek->execute(array($id));
+
+                        if ($yorumCek->rowCount()) {
+                            foreach ($yorumCek as $yorumCekSatir) {
+                    ?>
+                                <b><?php echo $yorumCekSatir['isim']; ?></b>
+                                <p><?php echo $yorumCekSatir['yorum']; ?></p>
+                                <hr>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 </div>
-                <hr>
                 <div class="w-75">
                     <h3>Yorum Yapın</h3>
                     <form action="" method="post" class="row px-3" style="row-gap:10px">
@@ -57,8 +76,8 @@ if (isset($_GET['postID'])) {
 <!-- Yorum Add Module Start -->
 <?php
 if (isset($_POST['yorumYap'])) {
-    $yorumEkle = $db->prepare('insert into yorumlar(isim,eposta,yorum,yaziID,durum) values(?,?,?,?,?)');
-    $yorumEkle->execute(array($_POST['isim'], $_POST['eposta'], $_POST['yorum'], $_POST['blog'], 'Onaylanmadı'));
+    $yorumEkle = $db->prepare('insert into yorumlar(isim,eposta,yorum,yaziID,baslik,durum) values(?,?,?,?,?,?)');
+    $yorumEkle->execute(array($_POST['isim'], $_POST['eposta'], $_POST['yorum'], $_POST['blog'], $articleSatir['baslik'], 'Onaylanmadı'));
 
     if ($yorumEkle->rowCount()) {
         echo '<script>
@@ -71,7 +90,7 @@ if (isset($_POST['yorumYap'])) {
                 toast.show();
 
                 toastEl.addEventListener("hidden.bs.toast", function () {
-                window.location.href = "makale.php?postID='.$articleSatir['id'].'";
+                window.location.href = "makale.php?postID=' . $articleSatir['id'] . '";
                 });
             });
             </script>';

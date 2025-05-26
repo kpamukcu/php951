@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 21 May 2025, 20:53:22
+-- Üretim Zamanı: 26 May 2025, 20:40:02
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -174,6 +174,7 @@ CREATE TABLE `yorumlar` (
   `eposta` varchar(75) NOT NULL,
   `yorum` text NOT NULL,
   `yaziID` varchar(5) NOT NULL,
+  `baslik` varchar(150) NOT NULL,
   `durum` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,9 +182,10 @@ CREATE TABLE `yorumlar` (
 -- Tablo döküm verisi `yorumlar`
 --
 
-INSERT INTO `yorumlar` (`id`, `isim`, `eposta`, `yorum`, `yaziID`, `durum`) VALUES
-(1, 'Hayko Cepkin', 'haykoilecos@hayko.com', 'Bu blog yazısı resmen bertaraf et şarkımdan daha iyi', '11', 'Onaylanmadı'),
-(2, 'Mahmut Tuncer', 'mamo@mahmut.com', 'Halay ile Coş', '10', 'Onaylanmadı');
+INSERT INTO `yorumlar` (`id`, `isim`, `eposta`, `yorum`, `yaziID`, `baslik`, `durum`) VALUES
+(1, 'Hayko Cepkin', 'haykoilecos@hayko.com', 'Bu blog yazısı resmen bertaraf et şarkımdan daha iyi', '11', 'Blog Yazısı Başlık 9', 'Onaylandı'),
+(2, 'Mahmut Tuncer', 'mamo@mahmut.com', 'Halay ile Coş', '10', 'Blog Yazısı Başlık 8', 'Onaylandı'),
+(4, 'Ajdar', 'ajdar@gmail.com', 'Çikita Muz ile Dünya Starıyım Ben', '10', 'Blog Yazısı Başlık 8', 'Onaylandı');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -263,7 +265,7 @@ ALTER TABLE `yazilar`
 -- Tablo için AUTO_INCREMENT değeri `yorumlar`
 --
 ALTER TABLE `yorumlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
