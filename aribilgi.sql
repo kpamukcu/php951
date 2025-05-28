@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 26 May 2025, 20:40:02
+-- Üretim Zamanı: 28 May 2025, 20:41:55
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -68,6 +68,32 @@ INSERT INTO `kategoriler` (`id`, `katAdi`, `katTuru`, `ustKat`, `aciklama`) VALU
 (3, 'Dijital Pazarlama', 'Üst Kategori', '', 'Dijital Pazarlama Hakkında Blog Yazıları'),
 (5, 'Html', 'Alt Kategori', 'Grafik Tasarımı', 'Html Kodları Hakkında Blog Yazısı'),
 (6, 'Seo', 'Alt Kategori', 'Dijital Pazarlama', 'Arama Motoru Optimizasyonu Blog Yazıları');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `mesajlar`
+--
+
+CREATE TABLE `mesajlar` (
+  `id` int(11) NOT NULL,
+  `isim` varchar(30) NOT NULL,
+  `soyisim` varchar(50) NOT NULL,
+  `eposta` varchar(100) NOT NULL,
+  `konu` varchar(100) NOT NULL,
+  `mesaj` text NOT NULL,
+  `durum` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `mesajlar`
+--
+
+INSERT INTO `mesajlar` (`id`, `isim`, `soyisim`, `eposta`, `konu`, `mesaj`, `durum`) VALUES
+(1, 'Hayko', 'Cepkin', 'haykoilecos@hayko.com', 'Web Sitesi Fiyat Bilgisi', 'Web sitem berbat bana acil site yapar mısın? Ama Wordpress olmasın özel kodlansın. Her şeyi de bilirim.', 'Okunmadı'),
+(2, 'Mahmut', 'Tuncer', 'mamo@mahmut.com', 'Sosyal Medya Hizmeti', 'Sosyal Medya Hizmeti almak istiyorum ama Instagram\'da hesabımda halay mendili satıcam.', 'Okunmadı'),
+(3, 'Yıldız', 'Tilbe', 'yildiizzz@gmail.com', 'Google Reklamları', 'Google Reklamları ile İbo beni adamların elinden kurtardı', 'Okunmadı'),
+(4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okunmadı');
 
 -- --------------------------------------------------------
 
@@ -204,6 +230,12 @@ ALTER TABLE `kategoriler`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `mesajlar`
+--
+ALTER TABLE `mesajlar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `portfolyo`
 --
 ALTER TABLE `portfolyo`
@@ -242,6 +274,12 @@ ALTER TABLE `hizmetler`
 --
 ALTER TABLE `kategoriler`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `mesajlar`
+--
+ALTER TABLE `mesajlar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `portfolyo`
