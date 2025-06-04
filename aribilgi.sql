@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 May 2025, 20:41:55
+-- Üretim Zamanı: 04 Haz 2025, 20:29:03
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `aribilgi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `hakkimizda`
+--
+
+CREATE TABLE `hakkimizda` (
+  `id` int(11) NOT NULL,
+  `baslik` varchar(20) NOT NULL,
+  `aciklama` text NOT NULL,
+  `metaDesc` text NOT NULL,
+  `gorsel` text NOT NULL,
+  `alt` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `hakkimizda`
+--
+
+INSERT INTO `hakkimizda` (`id`, `baslik`, `aciklama`, `metaDesc`, `gorsel`, `alt`) VALUES
+(1, 'Hakkımızda', '<p>XXXX Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, tempora sint esse nihil corrupti similique accusantium perferendis libero! Architecto cupiditate deleniti mollitia velit error fugit ipsa iusto libero similique reiciendis, ipsum dignissimos et repudiandae quia accusamus odit deserunt iure totam qui illum expedita? Nulla accusamus ea ipsam adipisci saepe unde hic, cum enim magnam, autem officia, id ducimus labore ad nobis nihil itaque facere repudiandae necessitatibus nam voluptatem vitae ex quaerat! Doloribus beatae, sint deleniti nulla, sunt laboriosam ipsum tempora dolore voluptatem hic animi maxime doloremque sequi optio asperiores facilis tempore illo voluptates minima cupiditate. Consequatur culpa veniam recusandae ea.</p>', 'XXXX Lorem ipsum dolor sit amet consectetur adipisicing elit', '../assets/img/aridijital-youtube-banner-1406x403.avif', 'Arı Bilgi Hakkımızda Banner Görsel');
 
 -- --------------------------------------------------------
 
@@ -41,8 +63,7 @@ CREATE TABLE `hizmetler` (
 INSERT INTO `hizmetler` (`id`, `baslik`, `aciklama`, `gorsel`) VALUES
 (2, 'Web Tasarımı Hizmeti', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim, erat sed viverra vehicula, tellus tellus sollicitudin ligula, ut tempus augue urna quis purus. Donec vehicula fermentum hendrerit. Mauris tempus risus ipsum. Donec a arcu at ligula ornare venenatis. Vivamus gravida fringilla rutrum. Proin auctor massa ac molestie consequat. Fusce eu efficitur est, quis efficitur turpis. Maecenas at convallis erat. Aliquam at metus dolor. Ut fermentum leo id fringilla convallis.</p><p>Ut dignissim turpis congue eros viverra, id eleifend leo condimentum. Curabitur varius eleifend lectus in tempor. Cras nisl ipsum, molestie non volutpat vel, dignissim non felis. Nullam viverra ultrices metus sed dictum. Cras nisl metus, egestas ut massa vehicula, pretium lobortis libero. Phasellus venenatis, mauris in vehicula porta, ligula turpis feugiat ligula, eu egestas felis dui in eros. In eu ex nec mi congue viverra.</p><p>Vivamus lacinia libero pretium, pretium diam posuere, elementum leo. Nam et malesuada nunc. Nullam venenatis pharetra ligula ac faucibus. Nulla tempor magna eget massa commodo, vel egestas enim commodo. Donec lacinia risus sed quam porttitor interdum. Curabitur eu quam interdum, semper nibh at, sollicitudin ex. Vivamus elementum, dolor id suscipit cursus, odio felis consectetur urna, vitae posuere nisl dui a felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ligula sit amet ligula laoreet tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus bibendum in ante et laoreet.</p>', '../assets/img/web-tasarimi-hizmeti-1920x540.avif'),
 (3, 'Grafik Tasarımı Hizmeti', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim, erat sed viverra vehicula, tellus tellus sollicitudin ligula, ut tempus augue urna quis purus. Donec vehicula fermentum hendrerit. Mauris tempus risus ipsum. Donec a arcu at ligula ornare venenatis. Vivamus gravida fringilla rutrum. Proin auctor massa ac molestie consequat. Fusce eu efficitur est, quis efficitur turpis. Maecenas at convallis erat. Aliquam at metus dolor. Ut fermentum leo id fringilla convallis.</p><p>Ut dignissim turpis congue eros viverra, id eleifend leo condimentum. Curabitur varius eleifend lectus in tempor. Cras nisl ipsum, molestie non volutpat vel, dignissim non felis. Nullam viverra ultrices metus sed dictum. Cras nisl metus, egestas ut massa vehicula, pretium lobortis libero. Phasellus venenatis, mauris in vehicula porta, ligula turpis feugiat ligula, eu egestas felis dui in eros. In eu ex nec mi congue viverra.</p><p>Vivamus lacinia libero pretium, pretium diam posuere, elementum leo. Nam et malesuada nunc. Nullam venenatis pharetra ligula ac faucibus. Nulla tempor magna eget massa commodo, vel egestas enim commodo. Donec lacinia risus sed quam porttitor interdum. Curabitur eu quam interdum, semper nibh at, sollicitudin ex. Vivamus elementum, dolor id suscipit cursus, odio felis consectetur urna, vitae posuere nisl dui a felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ligula sit amet ligula laoreet tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus bibendum in ante et laoreet.</p>', '../assets/img/grafik-tasarimi-hizmeti-1920x540.avif'),
-(4, 'Dijital Pazarlama Hizmeti', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim, erat sed viverra vehicula, tellus tellus sollicitudin ligula, ut tempus augue urna quis purus. Donec vehicula fermentum hendrerit. Mauris tempus risus ipsum. Donec a arcu at ligula ornare venenatis. Vivamus gravida fringilla rutrum. Proin auctor massa ac molestie consequat. Fusce eu efficitur est, quis efficitur turpis. Maecenas at convallis erat. Aliquam at metus dolor. Ut fermentum leo id fringilla convallis.</p><p>Ut dignissim turpis congue eros viverra, id eleifend leo condimentum. Curabitur varius eleifend lectus in tempor. Cras nisl ipsum, molestie non volutpat vel, dignissim non felis. Nullam viverra ultrices metus sed dictum. Cras nisl metus, egestas ut massa vehicula, pretium lobortis libero. Phasellus venenatis, mauris in vehicula porta, ligula turpis feugiat ligula, eu egestas felis dui in eros. In eu ex nec mi congue viverra.</p><p>Vivamus lacinia libero pretium, pretium diam posuere, elementum leo. Nam et malesuada nunc. Nullam venenatis pharetra ligula ac faucibus. Nulla tempor magna eget massa commodo, vel egestas enim commodo. Donec lacinia risus sed quam porttitor interdum. Curabitur eu quam interdum, semper nibh at, sollicitudin ex. Vivamus elementum, dolor id suscipit cursus, odio felis consectetur urna, vitae posuere nisl dui a felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ligula sit amet ligula laoreet tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus bibendum in ante et laoreet.</p>', '../assets/img/dijital-pazarlama-hizmeti-1920x540.avif'),
-(6, 'Deneme 4', '<p>Deneme 4</p>', '../assets/img/foto (1).jpg');
+(4, 'Dijital Pazarlama Hizmeti', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim, erat sed viverra vehicula, tellus tellus sollicitudin ligula, ut tempus augue urna quis purus. Donec vehicula fermentum hendrerit. Mauris tempus risus ipsum. Donec a arcu at ligula ornare venenatis. Vivamus gravida fringilla rutrum. Proin auctor massa ac molestie consequat. Fusce eu efficitur est, quis efficitur turpis. Maecenas at convallis erat. Aliquam at metus dolor. Ut fermentum leo id fringilla convallis.</p><p>Ut dignissim turpis congue eros viverra, id eleifend leo condimentum. Curabitur varius eleifend lectus in tempor. Cras nisl ipsum, molestie non volutpat vel, dignissim non felis. Nullam viverra ultrices metus sed dictum. Cras nisl metus, egestas ut massa vehicula, pretium lobortis libero. Phasellus venenatis, mauris in vehicula porta, ligula turpis feugiat ligula, eu egestas felis dui in eros. In eu ex nec mi congue viverra.</p><p>Vivamus lacinia libero pretium, pretium diam posuere, elementum leo. Nam et malesuada nunc. Nullam venenatis pharetra ligula ac faucibus. Nulla tempor magna eget massa commodo, vel egestas enim commodo. Donec lacinia risus sed quam porttitor interdum. Curabitur eu quam interdum, semper nibh at, sollicitudin ex. Vivamus elementum, dolor id suscipit cursus, odio felis consectetur urna, vitae posuere nisl dui a felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt ligula sit amet ligula laoreet tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus bibendum in ante et laoreet.</p>', '../assets/img/dijital-pazarlama-hizmeti-1920x540.avif');
 
 -- --------------------------------------------------------
 
@@ -92,8 +113,8 @@ CREATE TABLE `mesajlar` (
 INSERT INTO `mesajlar` (`id`, `isim`, `soyisim`, `eposta`, `konu`, `mesaj`, `durum`) VALUES
 (1, 'Hayko', 'Cepkin', 'haykoilecos@hayko.com', 'Web Sitesi Fiyat Bilgisi', 'Web sitem berbat bana acil site yapar mısın? Ama Wordpress olmasın özel kodlansın. Her şeyi de bilirim.', 'Okunmadı'),
 (2, 'Mahmut', 'Tuncer', 'mamo@mahmut.com', 'Sosyal Medya Hizmeti', 'Sosyal Medya Hizmeti almak istiyorum ama Instagram\'da hesabımda halay mendili satıcam.', 'Okunmadı'),
-(3, 'Yıldız', 'Tilbe', 'yildiizzz@gmail.com', 'Google Reklamları', 'Google Reklamları ile İbo beni adamların elinden kurtardı', 'Okunmadı'),
-(4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okunmadı');
+(3, 'Yıldız', 'Tilbe', 'yildiizzz@gmail.com', 'Google Reklamları', 'Google Reklamları ile İbo beni adamların elinden kurtardı', 'Okundu'),
+(4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okundu');
 
 -- --------------------------------------------------------
 
@@ -218,6 +239,12 @@ INSERT INTO `yorumlar` (`id`, `isim`, `eposta`, `yorum`, `yaziID`, `baslik`, `du
 --
 
 --
+-- Tablo için indeksler `hakkimizda`
+--
+ALTER TABLE `hakkimizda`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `hizmetler`
 --
 ALTER TABLE `hizmetler`
@@ -264,6 +291,12 @@ ALTER TABLE `yorumlar`
 --
 
 --
+-- Tablo için AUTO_INCREMENT değeri `hakkimizda`
+--
+ALTER TABLE `hakkimizda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `hizmetler`
 --
 ALTER TABLE `hizmetler`
@@ -273,19 +306,19 @@ ALTER TABLE `hizmetler`
 -- Tablo için AUTO_INCREMENT değeri `kategoriler`
 --
 ALTER TABLE `kategoriler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `mesajlar`
 --
 ALTER TABLE `mesajlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `portfolyo`
 --
 ALTER TABLE `portfolyo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `reklam_talep`

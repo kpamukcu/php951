@@ -1,21 +1,93 @@
-<?php require_once('header.php'); ?>
-<?php require_once('banner.php'); ?>
+<?php
+require_once('header.php');
+
+$about = $db->prepare('select * from hakkimizda order by id desc limit 1');
+$about->execute();
+$aboutRow = $about->fetch();
+?>
+
+<!-- About Us Banner Section Start -->
+<section id="aboutUs" class="banner text-white" style="background: url(<?php echo substr($aboutRow['gorsel'], 1); ?>);">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-1"><?php echo $aboutRow['baslik']; ?></h1>
+                <small>
+                    <a href="index.php" class="text-white">Ana Sayfa</a> / <?php echo $aboutRow['baslik']; ?>
+                </small>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Us Banner Section End -->
 
 <!-- About Us Content Section Start -->
 <section id="aboutUs" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, tempora sint esse nihil corrupti similique accusantium perferendis libero! Architecto cupiditate deleniti mollitia velit error fugit ipsa iusto libero similique reiciendis, ipsum dignissimos et repudiandae quia accusamus odit deserunt iure totam qui illum expedita? Nulla accusamus ea ipsam adipisci saepe unde hic, cum enim magnam, autem officia, id ducimus labore ad nobis nihil itaque facere repudiandae necessitatibus nam voluptatem vitae ex quaerat! Doloribus beatae, sint deleniti nulla, sunt laboriosam ipsum tempora dolore voluptatem hic animi maxime doloremque sequi optio asperiores facilis tempore illo voluptates minima cupiditate. Consequatur culpa veniam recusandae ea.
+                <?php echo $aboutRow['aciklama']; ?>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <h1>Hizmetleri Çek</h1>
+                <h1>Hizmetlerimiz</h1>
             </div>
+
+            <?php
+            $hizmetler = $db->prepare('select * from hizmetler order by baslik asc');
+            $hizmetler->execute();
+
+            if ($hizmetler->rowCount()) {
+                foreach ($hizmetler as $hizmetlerRow) {
+            ?>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="<?php echo substr($hizmetlerRow['gorsel'], 1); ?>" alt="<?php echo $hizmetlerRow['baslik']; ?>" class="card-img-top">
+                            <div class="card-body">
+                                <h2 class="text-center"><?php echo $hizmetlerRow['baslik']; ?></h2>
+                                <div style="text-align: justify;">
+                                    <?php echo substr($hizmetlerRow['aciklama'], 0, 300); ?>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<?php echo $hizmetlerRow['id']; ?>">
+                                    Daha Fazla Bilgi
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal<?php echo $hizmetlerRow['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal<?php echo $hizmetlerRow['id']; ?>" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="modal<?php echo $hizmetlerRow['id']; ?>"><?php echo $hizmetlerRow['baslik']; ?></h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="<?php echo substr($hizmetlerRow['gorsel'],1); ?>" alt="<?php echo $hizmetlerRow['baslik']; ?>" class="w-100">
+                                        <?php echo $hizmetlerRow['aciklama']; ?>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="iletisim.php">
+                                            <button type="button" class="btn btn-primary">Fiyat Teklifi Al</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
 </section>
 <!-- About Us Content Section End -->
+
+
+
 
 <?php require_once('footer.php'); ?>
