@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 11 Haz 2025, 20:55:55
+-- Üretim Zamanı: 16 Haz 2025, 20:34:39
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -20,6 +20,49 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `aribilgi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `anasayfa`
+--
+
+CREATE TABLE `anasayfa` (
+  `id` int(11) NOT NULL,
+  `baslik` varchar(20) NOT NULL,
+  `aciklama` text NOT NULL,
+  `video` varchar(75) NOT NULL,
+  `gorsel` varchar(100) NOT NULL,
+  `paketAdi1` varchar(20) NOT NULL,
+  `fiyat1` varchar(10) NOT NULL,
+  `paket1ozellik1` varchar(100) NOT NULL,
+  `paket1ozellik2` varchar(100) NOT NULL,
+  `paket1ozellik3` varchar(100) NOT NULL,
+  `paket1ozellik4` varchar(100) NOT NULL,
+  `paket1ozellik5` varchar(100) NOT NULL,
+  `paketAdi2` varchar(20) NOT NULL,
+  `fiyat2` varchar(10) NOT NULL,
+  `paket2ozellik1` varchar(100) NOT NULL,
+  `paket2ozellik2` varchar(100) NOT NULL,
+  `paket2ozellik3` varchar(100) NOT NULL,
+  `paket2ozellik4` varchar(100) NOT NULL,
+  `paket2ozellik5` varchar(100) NOT NULL,
+  `paketAdi3` varchar(20) NOT NULL,
+  `fiyat3` varchar(10) NOT NULL,
+  `paket3ozellik1` varchar(100) NOT NULL,
+  `paket3ozellik2` varchar(100) NOT NULL,
+  `paket3ozellik3` varchar(100) NOT NULL,
+  `paket3ozellik4` varchar(100) NOT NULL,
+  `paket3ozellik5` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `anasayfa`
+--
+
+INSERT INTO `anasayfa` (`id`, `baslik`, `aciklama`, `video`, `gorsel`, `paketAdi1`, `fiyat1`, `paket1ozellik1`, `paket1ozellik2`, `paket1ozellik3`, `paket1ozellik4`, `paket1ozellik5`, `paketAdi2`, `fiyat2`, `paket2ozellik1`, `paket2ozellik2`, `paket2ozellik3`, `paket2ozellik4`, `paket2ozellik5`, `paketAdi3`, `fiyat3`, `paket3ozellik1`, `paket3ozellik2`, `paket3ozellik3`, `paket3ozellik4`, `paket3ozellik5`) VALUES
+(1, 'Deneme', '<p>Deneme</p>', 'https://www.youtube.com/watch?v=nyaIWevAjGk', '../assets/img/digital-pazarlama-projeleri-1920x540.webp', 'Paket 1', '50000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Paket 2', '60000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', ' Paket 3', '70000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5'),
+(2, 'deneme 2', '<p>deneme 2</p>', 'nyaIWevAjGk', '../assets/img/avatar-500x500.jpg', 'Basic Paket', '50000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Pro Paket', '60000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Premium Paket', '70000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5');
 
 -- --------------------------------------------------------
 
@@ -112,9 +155,10 @@ CREATE TABLE `mesajlar` (
 
 INSERT INTO `mesajlar` (`id`, `isim`, `soyisim`, `eposta`, `konu`, `mesaj`, `durum`) VALUES
 (1, 'Hayko', 'Cepkin', 'haykoilecos@hayko.com', 'Web Sitesi Fiyat Bilgisi', 'Web sitem berbat bana acil site yapar mısın? Ama Wordpress olmasın özel kodlansın. Her şeyi de bilirim.', 'Okunmadı'),
-(2, 'Mahmut', 'Tuncer', 'mamo@mahmut.com', 'Sosyal Medya Hizmeti', 'Sosyal Medya Hizmeti almak istiyorum ama Instagram\'da hesabımda halay mendili satıcam.', 'Okunmadı'),
+(2, 'Mahmut', 'Tuncer', 'mamo@mahmut.com', 'Sosyal Medya Hizmeti', 'Sosyal Medya Hizmeti almak istiyorum ama Instagram\'da hesabımda halay mendili satıcam.', 'Okundu'),
 (3, 'Yıldız', 'Tilbe', 'yildiizzz@gmail.com', 'Google Reklamları', 'Google Reklamları ile İbo beni adamların elinden kurtardı', 'Okundu'),
-(4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okundu');
+(4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okundu'),
+(6, 'Bülent ', 'Ersoy', 'bulooo@gmail.com', 'Rakı Siparişi Vermek İstiyorum', 'Fevkaladenin fevkinde bir site ama neden rakı satmıyorsun', 'Okunmadı');
 
 -- --------------------------------------------------------
 
@@ -239,6 +283,12 @@ INSERT INTO `yorumlar` (`id`, `isim`, `eposta`, `yorum`, `yaziID`, `baslik`, `du
 --
 
 --
+-- Tablo için indeksler `anasayfa`
+--
+ALTER TABLE `anasayfa`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `hakkimizda`
 --
 ALTER TABLE `hakkimizda`
@@ -291,6 +341,12 @@ ALTER TABLE `yorumlar`
 --
 
 --
+-- Tablo için AUTO_INCREMENT değeri `anasayfa`
+--
+ALTER TABLE `anasayfa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `hakkimizda`
 --
 ALTER TABLE `hakkimizda`
@@ -306,13 +362,13 @@ ALTER TABLE `hizmetler`
 -- Tablo için AUTO_INCREMENT değeri `kategoriler`
 --
 ALTER TABLE `kategoriler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `mesajlar`
 --
 ALTER TABLE `mesajlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `portfolyo`
