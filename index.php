@@ -1,12 +1,23 @@
-<?php require_once('header.php'); ?>
+<?php
+require_once('header.php');
+
+/* Main Page Settings Start */
+
+$mainPageSet = $db->prepare('select * from anasayfa order by id desc limit 1');
+$mainPageSet->execute();
+$mainPageSetRow = $mainPageSet->fetch();
+
+/* Main Page Settings End */
+
+?>
 
 <!-- Main Banner Section Start -->
 <section id="mainBanner">
     <div class="container kaanksss rounded-5" style="background: #f2f2f2;">
         <div class="row px-4">
-            <div class="col-md-6">
-                <h1>Banner Başlık Gelecek</h1>
-                <p>Kısa Açıklama Gelecek veya slogan</p>
+            <div class="col-md-6 my-auto">
+                <h1><?php echo $mainPageSetRow['baslik']; ?></h1>
+                <p><?php echo $mainPageSetRow['aciklama']; ?></p>
                 <!-- Button trigger modal -->
                 <div type="button" class="btn-purple" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display: flex; align-items:center; column-gap:10px; padding:8px 0px; width:30%; justify-content:center; border-radius:8px;">
                     Tanıtım Videosu <i class="bi bi-play-circle-fill text-white"></i>
@@ -14,26 +25,21 @@
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                            <div class="modal-body">                                
+                                <iframe width="100%" height="315" src="https://www.youtube.com/embed/<?php echo $mainPageSetRow['video']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                Görsel Gelecek
-                <img src="" alt="">
+            <div class="col-md-6 my-auto">
+                <img src="<?php echo substr($mainPageSetRow['gorsel'], 1); ?>" alt="<?php echo $mainPageSetRow['baslik']; ?>" class="w-100">
             </div>
         </div>
     </div>
@@ -126,16 +132,56 @@
             <div class="col-md-4">
                 <div class="card shadow text-center" style="border: none;">
                     <div class="card-header bg-transparent py-4">
-                        <p>Paket Adı</p>
-                        <span class="fs-2">Fiyat</span>
+                        <p><?php echo $mainPageSetRow['paketAdi1']; ?></p>
+                        <span class="fs-2"><?php echo $mainPageSetRow['fiyat1']; ?>₺</span>
                     </div>
                     <div class="card-body">
                         <ol class="list-group">
-                            <li class="list-group-item">Özellik 1</li>
-                            <li class="list-group-item">Özellik 2</li>
-                            <li class="list-group-item">Özellik 3</li>
-                            <li class="list-group-item">Özellik 4</li>
-                            <li class="list-group-item">Özellik 5</li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket1ozellik1'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket1ozellik2'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket1ozellik3'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket1ozellik4'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket1ozellik5'] ?></li>
+                        </ol>
+                    </div>
+                    <div class="card-footer bg-transparent py-4">
+                        <a href="iletisim.php" class="btn bg-secondary-subtle w-100 py-2 fs-4">Başvur</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow text-center" style="border: none;">
+                    <div class="card-header bg-transparent py-4">
+                        <p><?php echo $mainPageSetRow['paketAdi2']; ?></p>
+                        <span class="fs-2"><?php echo $mainPageSetRow['fiyat2']; ?>₺</span>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-group">
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket2ozellik1'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket2ozellik2'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket2ozellik3'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket2ozellik4'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket2ozellik5'] ?></li>
+                        </ol>
+                    </div>
+                    <div class="card-footer bg-transparent py-4">
+                        <a href="iletisim.php" class="btn bg-secondary-subtle w-100 py-2 fs-4">Başvur</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow text-center" style="border: none;">
+                    <div class="card-header bg-transparent py-4">
+                        <p><?php echo $mainPageSetRow['paketAdi3']; ?></p>
+                        <span class="fs-2"><?php echo $mainPageSetRow['fiyat3']; ?>₺</span>
+                    </div>
+                    <div class="card-body">
+                        <ol class="list-group">
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket3ozellik1'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket3ozellik2'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket3ozellik3'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket3ozellik4'] ?></li>
+                            <li class="list-group-item"><?php echo $mainPageSetRow['paket3ozellik5'] ?></li>
                         </ol>
                     </div>
                     <div class="card-footer bg-transparent py-4">
