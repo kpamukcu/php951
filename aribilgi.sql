@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 16 Haz 2025, 20:34:39
+-- Üretim Zamanı: 18 Haz 2025, 20:40:51
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -61,8 +61,35 @@ CREATE TABLE `anasayfa` (
 --
 
 INSERT INTO `anasayfa` (`id`, `baslik`, `aciklama`, `video`, `gorsel`, `paketAdi1`, `fiyat1`, `paket1ozellik1`, `paket1ozellik2`, `paket1ozellik3`, `paket1ozellik4`, `paket1ozellik5`, `paketAdi2`, `fiyat2`, `paket2ozellik1`, `paket2ozellik2`, `paket2ozellik3`, `paket2ozellik4`, `paket2ozellik5`, `paketAdi3`, `fiyat3`, `paket3ozellik1`, `paket3ozellik2`, `paket3ozellik3`, `paket3ozellik4`, `paket3ozellik5`) VALUES
-(1, 'Deneme', '<p>Deneme</p>', 'https://www.youtube.com/watch?v=nyaIWevAjGk', '../assets/img/digital-pazarlama-projeleri-1920x540.webp', 'Paket 1', '50000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Paket 2', '60000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', ' Paket 3', '70000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5'),
-(2, 'deneme 2', '<p>deneme 2</p>', 'nyaIWevAjGk', '../assets/img/avatar-500x500.jpg', 'Basic Paket', '50000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Pro Paket', '60000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Premium Paket', '70000', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5');
+(2, 'deneme 2', '<p>deneme 2</p>', 'iD9lgkXRvpI', '../assets/img/avatar-500x500.jpg', 'Basic Paket', '50001', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Pro Paket', '60000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Premium Paket', '70000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `ayarlar`
+--
+
+CREATE TABLE `ayarlar` (
+  `id` int(11) NOT NULL,
+  `kisaAciklama` text NOT NULL,
+  `telefon` varchar(15) NOT NULL,
+  `wp` varchar(15) NOT NULL,
+  `eposta` varchar(75) NOT NULL,
+  `adres` varchar(100) NOT NULL,
+  `harita` text NOT NULL,
+  `facebook` varchar(100) NOT NULL,
+  `instagram` varchar(100) NOT NULL,
+  `twitter` varchar(100) NOT NULL,
+  `linkedin` varchar(100) NOT NULL,
+  `logo` varchar(75) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `ayarlar`
+--
+
+INSERT INTO `ayarlar` (`id`, `kisaAciklama`, `telefon`, `wp`, `eposta`, `adres`, `harita`, `facebook`, `instagram`, `twitter`, `linkedin`, `logo`) VALUES
+(1, 'Arı Bilgi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus consequat neque dapibus porta.', '5555555555', '5555555555', 'info@aribilisim.com', 'Aliquam finibus consequat neque Kadıköy / İstanbul', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6498189854274!2d29.021149575385156!3d40.98914822060356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8679bfb3d31%3A0x7d75715e081dfa5c!2sAr%C4%B1%20Bilgi%20Bili%C5%9Fim%20Teknolojileri%20Akademisi%20(Kad%C4%B1k%C3%B6y%20%C5%9Eube)!5e0!3m2!1str!2str!4v1750270199400!5m2!1str!2str\" width=\"100%\" height=\"100%\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'https://facebook.com/aribilgi', 'https://instgaram.com/aribillgi', 'https://twitter.com/aribillgi', 'https://linkedin.com/aribillgi', '../assets/img/ari-bilisim-512x97.webp');
 
 -- --------------------------------------------------------
 
@@ -289,6 +316,12 @@ ALTER TABLE `anasayfa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `ayarlar`
+--
+ALTER TABLE `ayarlar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `hakkimizda`
 --
 ALTER TABLE `hakkimizda`
@@ -345,6 +378,12 @@ ALTER TABLE `yorumlar`
 --
 ALTER TABLE `anasayfa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `ayarlar`
+--
+ALTER TABLE `ayarlar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `hakkimizda`
