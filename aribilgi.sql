@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 18 Haz 2025, 20:40:51
+-- Üretim Zamanı: 23 Haz 2025, 19:55:49
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -383,7 +383,7 @@ ALTER TABLE `anasayfa`
 -- Tablo için AUTO_INCREMENT değeri `ayarlar`
 --
 ALTER TABLE `ayarlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `hakkimizda`
@@ -395,7 +395,7 @@ ALTER TABLE `hakkimizda`
 -- Tablo için AUTO_INCREMENT değeri `hizmetler`
 --
 ALTER TABLE `hizmetler`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kategoriler`
