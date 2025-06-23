@@ -34,7 +34,6 @@ if (isset($_GET['deleteID'])) {
 <div class="row">
     <div class="col-md-6">
         <h3>Site Ayaları</h3>
-
         <form action="" method="post" enctype="multipart/form-data" class="flexList gap-2">
             <textarea name="kisaAciklama" placeholder="Kısa Açıklama Girin" rows="5" class="form-control"></textarea>
             <div class="row">
@@ -169,21 +168,88 @@ if (isset($_POST['ayarKaydet'])) {
 
 <!-- Update Modal Start -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sayfa Yüklendiğinde Gösterilen Modal</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Site Ayarları Güncelleme</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Sayfa yüklendiğinde bu modal otomatik olarak gösterilecektir.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <form action="" method="post" enctype="multipart/form-data" class="flexList gap-2">
+                    <textarea name="kisaAciklamaUP" rows="5" class="form-control"><?php echo $veriCekRow['kisaAciklama']; ?></textarea>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="tel" name="telefonUP" value="<?php echo $veriCekRow['telefon']; ?>" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="tel" name="wpUP" value="<?php echo $veriCekRow['wp']; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="email" name="epostaUP" value="<?php echo $veriCekRow['eposta']; ?>" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="adresUP" value="<?php echo $veriCekRow['adres']; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <textarea name="haritaUP" rows="5" class="form-control"><?php echo $veriCekRow['harita']; ?></textarea>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="url" name="facebookUP" value="<?php echo $veriCekRow['facebook']; ?>" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="url" name="instagramUP" value="<?php echo $veriCekRow['instagram']; ?>" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="url" name="twitterUP" value="<?php echo $veriCekRow['twitter']; ?>" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="url" name="linkedinUP" value="<?php echo $veriCekRow['linkedin']; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <img src="<?php echo $veriCekRow['logo']; ?>" class="w-25">
+                            <input type="file" name="logoUP" class="form-control">
+                        </div>
+                        <div class="col-md-3 justify-content-end" style="display:flex; align-items:end;">
+                            <button type="submit" class="btn btn-success w-100" name="ayarGuncelle">Güncelle</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <!-- Update Modal End -->
+
+<!-- Update Module Start -->
+<?php
+if (isset($_POST['ayarGuncelle'])) {
+    $logoUP = '../assets/img/' . $_FILES['logoUP']['name'];
+
+    if (move_uploaded_file($_FILES['logoUP']['tmp_name'], $logoUP)) {
+        $ayarGuncelle = $db->prepare('update ayarlar set kisaAciklama=?, telefon=?, wp=?, eposta=?, adres=?, harita=?, facebook=?, instagram=?, twitter=?, linkedin=?, logo=? where id=?');
+        $ayarGuncelle->execute(array($_POST['kisaAciklamaUP'], $_POST['telefonUP'], $_POST['wpUP'], $_POST['epostaUP'], $_POST['adresUP'], $_POST['haritaUP'], $_POST['facebookUP'], $_POST['instagramUP'], $_POST['twitterUP'], $_POST['linkedinUP'], $logoUP, $id));
+
+        if ($ayarGuncelle->rowCount()) {
+            echo '<script>alert("Kayıt Güncellendi")</script><meta http-equiv="refresh" content="0; url=ayarlar.php">';
+        } else {
+            echo '<script>alert("Hata Oluştu")</script><meta http-equiv="refresh" content="0; url=ayarlar.php">';
+        }
+    } else {
+        $ayarGuncelle = $db->prepare('update ayarlar set kisaAciklama=?, telefon=?, wp=?, eposta=?, adres=?, harita=?, facebook=?, instagram=?, twitter=?, linkedin=? where id=?');
+        $ayarGuncelle->execute(array($_POST['kisaAciklamaUP'], $_POST['telefonUP'], $_POST['wpUP'], $_POST['epostaUP'], $_POST['adresUP'], $_POST['haritaUP'], $_POST['facebookUP'], $_POST['instagramUP'], $_POST['twitterUP'], $_POST['linkedinUP'], $id));
+
+        if ($ayarGuncelle->rowCount()) {
+            echo '<script>alert("Kayıt Güncellendi")</script><meta http-equiv="refresh" content="0; url=ayarlar.php">';
+        } else {
+            echo '<script>alert("Hata Oluştu")</script><meta http-equiv="refresh" content="0; url=ayarlar.php">';
+        }
+    }
+}
+?>
+<!-- Update Module End -->
 
 <?php require_once('footer.php'); ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Haz 2025, 19:55:49
+-- Üretim Zamanı: 23 Haz 2025, 20:27:43
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -89,7 +89,7 @@ CREATE TABLE `ayarlar` (
 --
 
 INSERT INTO `ayarlar` (`id`, `kisaAciklama`, `telefon`, `wp`, `eposta`, `adres`, `harita`, `facebook`, `instagram`, `twitter`, `linkedin`, `logo`) VALUES
-(1, 'Arı Bilgi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus consequat neque dapibus porta.', '5555555555', '5555555555', 'info@aribilisim.com', 'Aliquam finibus consequat neque Kadıköy / İstanbul', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6498189854274!2d29.021149575385156!3d40.98914822060356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8679bfb3d31%3A0x7d75715e081dfa5c!2sAr%C4%B1%20Bilgi%20Bili%C5%9Fim%20Teknolojileri%20Akademisi%20(Kad%C4%B1k%C3%B6y%20%C5%9Eube)!5e0!3m2!1str!2str!4v1750270199400!5m2!1str!2str\" width=\"100%\" height=\"100%\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'https://facebook.com/aribilgi', 'https://instgaram.com/aribillgi', 'https://twitter.com/aribillgi', 'https://linkedin.com/aribillgi', '../assets/img/ari-bilisim-512x97.webp');
+(1, 'Güncellendi Arı Bilgi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus consequat neque dapibus porta.', '5555555555', '5555555555', 'info@aribilisim.com', 'Aliquam finibus consequat neque Kadıköy / İstanbul', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6498189854274!2d29.021149575385156!3d40.98914822060356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8679bfb3d31%3A0x7d75715e081dfa5c!2sAr%C4%B1%20Bilgi%20Bili%C5%9Fim%20Teknolojileri%20Akademisi%20(Kad%C4%B1k%C3%B6y%20%C5%9Eube)!5e0!3m2!1str!2str!4v1750270199400!5m2!1str!2str\" width=\"100%\" height=\"100%\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'https://facebook.com/aribilgi', 'https://instgaram.com/aribillgi', 'https://twitter.com/aribillgi', 'https://linkedin.com/aribillgi', '../assets/img/logo-512x97.png');
 
 -- --------------------------------------------------------
 
