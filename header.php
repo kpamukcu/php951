@@ -1,4 +1,13 @@
-<?php require_once('./assets/baglan.php');?>
+<?php 
+require_once('./assets/baglan.php'); 
+
+/* Ayarlar Select Module Start */
+$ayarlar = $db->prepare('select * from ayarlar order by id desc limit 1');
+$ayarlar -> execute();
+$ayarlarRow = $ayarlar -> fetch();
+/* Ayarlar Select Module End */
+
+?>
 
 <!DOCTYPE html>
 <html lang="tr">
