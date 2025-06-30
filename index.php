@@ -118,8 +118,20 @@ $mainPageSetRow = $mainPageSet->fetch();
         </div>
     </div>
 </section>
-<!-- Seo Application Section End -->
 
+<?php
+if(isset($_POST['seoApp'])){
+    $seoTalep = $db -> prepare('insert into seotalep(url) values(?)');
+    $seoTalep -> execute(array($_POST['siteAdres']));
+
+    if($seoTalep -> rowCount()){
+        echo '<script>alert("Talebiniz Alınmıştır")</script>';
+    } else {
+        echo '<script>alert("Hata Oluştu. Tekrar Deneyin")</script>';
+    }
+}
+?>
+<!-- Seo Application Section End -->
 <!-- Pricing Section Start -->
 <section id="pricing" class="py-5">
     <div class="container">
