@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Haz 2025, 20:27:43
+-- Üretim Zamanı: 02 Tem 2025, 18:48:47
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -61,7 +61,7 @@ CREATE TABLE `anasayfa` (
 --
 
 INSERT INTO `anasayfa` (`id`, `baslik`, `aciklama`, `video`, `gorsel`, `paketAdi1`, `fiyat1`, `paket1ozellik1`, `paket1ozellik2`, `paket1ozellik3`, `paket1ozellik4`, `paket1ozellik5`, `paketAdi2`, `fiyat2`, `paket2ozellik1`, `paket2ozellik2`, `paket2ozellik3`, `paket2ozellik4`, `paket2ozellik5`, `paketAdi3`, `fiyat3`, `paket3ozellik1`, `paket3ozellik2`, `paket3ozellik3`, `paket3ozellik4`, `paket3ozellik5`) VALUES
-(2, 'deneme 2', '<p>deneme 2</p>', 'iD9lgkXRvpI', '../assets/img/avatar-500x500.jpg', 'Basic Paket', '50001', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Pro Paket', '60000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Premium Paket', '70000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5');
+(2, 'Arı Bilişim Dijital ', '<p>Web Tasarımı, Grafik Tasarımı ve Dijital Pazarlama Hizmetlerimizle Bir Adım Önde Olun</p>', 'iD9lgkXRvpI', '../assets/img/avatar-500x500.jpg', 'Basic Paket', '50001', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Pro Paket', '60000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5', 'Premium Paket', '70000 ', 'Özellik 1', 'Özellik 2', 'Özellik 3', 'Özellik 4', 'Özellik 5');
 
 -- --------------------------------------------------------
 
@@ -90,6 +90,24 @@ CREATE TABLE `ayarlar` (
 
 INSERT INTO `ayarlar` (`id`, `kisaAciklama`, `telefon`, `wp`, `eposta`, `adres`, `harita`, `facebook`, `instagram`, `twitter`, `linkedin`, `logo`) VALUES
 (1, 'Güncellendi Arı Bilgi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam finibus consequat neque dapibus porta.', '5555555555', '5555555555', 'info@aribilisim.com', 'Aliquam finibus consequat neque Kadıköy / İstanbul', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6498189854274!2d29.021149575385156!3d40.98914822060356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab8679bfb3d31%3A0x7d75715e081dfa5c!2sAr%C4%B1%20Bilgi%20Bili%C5%9Fim%20Teknolojileri%20Akademisi%20(Kad%C4%B1k%C3%B6y%20%C5%9Eube)!5e0!3m2!1str!2str!4v1750270199400!5m2!1str!2str\" width=\"100%\" height=\"100%\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'https://facebook.com/aribilgi', 'https://instgaram.com/aribillgi', 'https://twitter.com/aribillgi', 'https://linkedin.com/aribillgi', '../assets/img/logo-512x97.png');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `ebulten`
+--
+
+CREATE TABLE `ebulten` (
+  `id` int(11) NOT NULL,
+  `eposta` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `ebulten`
+--
+
+INSERT INTO `ebulten` (`id`, `eposta`) VALUES
+(1, 'buleeeentttt@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -250,6 +268,24 @@ INSERT INTO `reklam_talep` (`id`, `isim`, `telefon`, `eposta`, `adres`, `gorsel`
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `seotalep`
+--
+
+CREATE TABLE `seotalep` (
+  `id` int(11) NOT NULL,
+  `url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Tablo döküm verisi `seotalep`
+--
+
+INSERT INTO `seotalep` (`id`, `url`) VALUES
+(1, 'https://www.aribilgi.com');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `yazilar`
 --
 
@@ -322,6 +358,12 @@ ALTER TABLE `ayarlar`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `ebulten`
+--
+ALTER TABLE `ebulten`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `hakkimizda`
 --
 ALTER TABLE `hakkimizda`
@@ -358,6 +400,12 @@ ALTER TABLE `reklam_talep`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `seotalep`
+--
+ALTER TABLE `seotalep`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `yazilar`
 --
 ALTER TABLE `yazilar`
@@ -384,6 +432,12 @@ ALTER TABLE `anasayfa`
 --
 ALTER TABLE `ayarlar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `ebulten`
+--
+ALTER TABLE `ebulten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `hakkimizda`
@@ -420,6 +474,12 @@ ALTER TABLE `portfolyo`
 --
 ALTER TABLE `reklam_talep`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `seotalep`
+--
+ALTER TABLE `seotalep`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `yazilar`

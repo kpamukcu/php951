@@ -14,7 +14,7 @@ $mainPageSetRow = $mainPageSet->fetch();
 <!-- Main Banner Section Start -->
 <section id="mainBanner">
     <div class="container kaanksss rounded-5" style="background: #f2f2f2;">
-        <div class="row px-4">
+        <div class="row px-5">
             <div class="col-md-6 my-auto">
                 <h1><?php echo $mainPageSetRow['baslik']; ?></h1>
                 <p><?php echo $mainPageSetRow['aciklama']; ?></p>
@@ -38,8 +38,8 @@ $mainPageSetRow = $mainPageSet->fetch();
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 my-auto">
-                <img src="<?php echo substr($mainPageSetRow['gorsel'], 1); ?>" alt="<?php echo $mainPageSetRow['baslik']; ?>" class="w-100">
+            <div class="col-md-6 my-auto text-end">
+                <img src="<?php echo substr($mainPageSetRow['gorsel'], 1); ?>" alt="<?php echo $mainPageSetRow['baslik']; ?>">
             </div>
         </div>
     </div>

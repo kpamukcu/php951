@@ -36,6 +36,11 @@
     background-position: center center !important;
 }
 
+#mainBanner img{
+    width: 65% !important;
+    border-radius: 32px !important;
+}
+
 .btn-purple, .bg-purple{
     background-color: #6c55f9;
     color:#fff;
