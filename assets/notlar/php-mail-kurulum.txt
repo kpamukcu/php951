@@ -12,9 +12,9 @@
 
 <?php
 
-require_once __DIR__ . './phpmailer/PHPMailer.php';
-require_once __DIR__ . './phpmailer/SMTP.php';
-require_once __DIR__ . './phpmailer/Exception.php';
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+require_once __DIR__ . '/phpmailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -49,7 +49,7 @@ try {
     $mail->AltBody = 'Bu bir test mailidir (HTML olmayan versiyon).';
 
     $mail->send();
-    echo '<script>alert("Mesajınız başarıyla gönderildi.")</script>';
+    echo "Mesajınız başarıyla gönderildi.";
 } catch (Exception $e) {
     echo "E-posta gönderilemedi. Hata: {$mail->ErrorInfo}";
 }
