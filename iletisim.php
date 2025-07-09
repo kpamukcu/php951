@@ -36,7 +36,7 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-6">
-                <form action="" class="row gy-2" method="post">
+                <form action="./assets/mailsender.php" class="row gy-2" method="post">
                     <div class="col-md-6">
                         <input type="text" name="isim" placeholder="Adınız" class="form-control">
                     </div>

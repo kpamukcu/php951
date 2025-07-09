@@ -1,0 +1,111 @@
+1- form etiketindeki action="" attribute'una inputtan gönderilecek bilgilerin gönderilecği mail sender dosyasının adı yazılır. Ör: mailsender.php
+
+2- phpmailer isimli bir klasör açılmalı ve içine https://github.com/PHPMailer/PHPMailer adresindeki "language" kalsörü ile "Exception.php", "PHPMailer.php", "SMTP.php" dosyaları eklenir.
+
+3- formdan gelecek bilgilerin mail olarak iletilebilmesi için aşağıdaki kod yapısı mailsender.php dosyasına eklenir.
+
+4- https://myaccount.google.com/apppasswords adresinden google uygulama şifresi almak gerekiyor.
+
+
+****** mailsender.php kod yapısı *****
+
+
+<?php
+
+require_once __DIR__ . './phpmailer/PHPMailer.php';
+require_once __DIR__ . './phpmailer/SMTP.php';
+require_once __DIR__ . './phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+$mail = new PHPMailer(true);
+
+try {
+    // Sunucu ayarları
+    $mail->isSMTP();                                      // SMTP kullan
+    $mail->Host       = 'smtp.gmail.com';                 // SMTP sunucusu
+    $mail->SMTPAuth   = true;                             // SMTP kimlik doğrulaması
+    $mail->Username   = 'seninmailin@gmail.com';  	  // Gönderici mail adresi
+    $mail->Password   = 'uygulama_sifresi';               // Şifre (Gmail için uygulama şifresi gerekebilir)
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   // Şifreleme türü
+    $mail->Port       = 587;                              // SMTP portu
+
+    // Alıcılar
+    $mail->setFrom('seninmailin@gmail.com', 'Ad Soyad');
+    $mail->addAddress('alicimail@example.com', 'Ad Soyad');
+
+    // İçerik
+    $mail->isHTML(true);                                  // HTML içerik
+
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
+    $mail->setLanguage('tr', './phpmailer/language/'); // Opsiyonel, Türkçe hata mesajları için
+
+
+    $mail->Subject = $_POST['konu'];
+    $mail->Body    = $_POST['mesaj'];
+    $mail->AltBody = 'Bu bir test mailidir (HTML olmayan versiyon).';
+
+    $mail->send();
+    echo '<script>alert("Mesajınız başarıyla gönderildi.")</script>';
+} catch (Exception $e) {
+    echo "E-posta gönderilemedi. Hata: {$mail->ErrorInfo}";
+}
+
+
+
+****** mailsender.php kod yapısı (Veri Tabanı Kayıtlı)*****
+****** iletisim.php sayfasında kaydet modülüne gerek yok ****** 
+
+<?php
+
+require_once('baglan.php');
+require_once __DIR__ . './phpmailer/PHPMailer.php';
+require_once __DIR__ . './phpmailer/SMTP.php';
+require_once __DIR__ . './phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+$mail = new PHPMailer(true);
+
+try {
+    // Sunucu ayarları
+    $mail->isSMTP();                                      // SMTP kullan
+    $mail->Host       = 'smtp.gmail.com';                 // SMTP sunucusu
+    $mail->SMTPAuth   = true;                             // SMTP kimlik doğrulaması
+    $mail->Username   = 'kaanaribilgidersler@gmail.com';  // Gönderici mail adresi
+    $mail->Password   = 'ayay fdiw hsko efan';            // Şifre (Gmail için uygulama şifresi gerekebilir)
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   // Şifreleme türü
+    $mail->Port       = 587;                              // SMTP portu
+
+    // Alıcılar
+    $mail->setFrom('kaanaribilgidersler@mail.com', 'Kaan ArıBilgi');
+    $mail->addAddress('kaanpamukcu@gmail.com', 'Kaan Pamukcu');
+
+    // İçerik
+    $mail->isHTML(true);                                  // HTML içerik
+
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
+    $mail->setLanguage('tr', './phpmailer/language/'); // Opsiyonel, Türkçe hata mesajları için
+
+
+    $mail->Subject = $_POST['konu'];
+    $mail->Body    = $_POST['mesaj'];
+    $mail->AltBody = 'Bu bir test mailidir (HTML olmayan versiyon).';
+
+    $mail->send();
+
+    $mesajKaydet = $db->prepare('insert into mesajlar(isim,soyisim,eposta,konu,mesaj,durum) values(?,?,?,?,?,?)');
+    $mesajKaydet->execute(array($_POST['isim'], $_POST['soyisim'], $_POST['eposta'], $_POST['konu'], $_POST['mesaj'], "Okunmadı"));
+
+    if ($mesajKaydet->rowCount()) {
+        echo '<script>alert("Mesajınız başarıyla gönderildi.")</script><meta http-equiv="refresh" content="0; url=../iletisim.php">';
+    }
+} catch (Exception $e) {
+    echo "E-posta gönderilemedi. Hata: {$mail->ErrorInfo}";
+}
