@@ -1,9 +1,9 @@
 <?php
 
 require_once('baglan.php');
-require_once __DIR__ . './phpmailer/PHPMailer.php';
-require_once __DIR__ . './phpmailer/SMTP.php';
-require_once __DIR__ . './phpmailer/Exception.php';
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+require_once __DIR__ . '/phpmailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,13 +17,13 @@ try {
     $mail->Host       = 'smtp.gmail.com';                 // SMTP sunucusu
     $mail->SMTPAuth   = true;                             // SMTP kimlik doğrulaması
     $mail->Username   = 'kaanaribilgidersler@gmail.com';  // Gönderici mail adresi
-    $mail->Password   = 'ayay fdiw hsko efan';            // Şifre (Gmail için uygulama şifresi gerekebilir)
+    $mail->Password   = 'qmqb jbco truo pgxx';            // Şifre (Gmail için uygulama şifresi gerekebilir)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   // Şifreleme türü
     $mail->Port       = 587;                              // SMTP portu
 
     // Alıcılar
-    $mail->setFrom('kaanaribilgidersler@mail.com', 'Kaan ArıBilgi');
-    $mail->addAddress('kaanpamukcu@gmail.com', 'Kaan Pamukcu');
+    $mail->setFrom('kaanaribilgidersler@gmail.com', 'Kaan');
+    $mail->addAddress('kaanpamukcu@gmail.com', 'Kaan 2');
 
     // İçerik
     $mail->isHTML(true);                                  // HTML içerik

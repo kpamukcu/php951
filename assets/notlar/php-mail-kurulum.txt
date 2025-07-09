@@ -2,9 +2,9 @@
 
 2- phpmailer isimli bir klasör açılmalı ve içine https://github.com/PHPMailer/PHPMailer adresindeki "language" kalsörü ile "Exception.php", "PHPMailer.php", "SMTP.php" dosyaları eklenir.
 
-3- formdan gelecek bilgilerin mail olarak iletilebilmesi için aşağıdaki kod yapısı mailsender.php dosyasına eklenir.
+3- https://myaccount.google.com/apppasswords adresinden google uygulama şifresi almak gerekiyor.
 
-4- https://myaccount.google.com/apppasswords adresinden google uygulama şifresi almak gerekiyor.
+4- formdan gelecek bilgilerin mail olarak iletilebilmesi için aşağıdaki kod yapısı mailsender.php dosyasına eklenir.
 
 
 ****** mailsender.php kod yapısı *****
