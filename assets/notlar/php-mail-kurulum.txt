@@ -77,14 +77,14 @@ try {
     $mail->isSMTP();                                      // SMTP kullan
     $mail->Host       = 'smtp.gmail.com';                 // SMTP sunucusu
     $mail->SMTPAuth   = true;                             // SMTP kimlik doğrulaması
-    $mail->Username   = 'kaanaribilgidersler@gmail.com';  // Gönderici mail adresi
-    $mail->Password   = 'ayay fdiw hsko efan';            // Şifre (Gmail için uygulama şifresi gerekebilir)
+    $mail->Username   = 'seninmailin@gmail.com';          // Gönderici mail adresi
+    $mail->Password   = 'uygulama_sifresi';            	  // Şifre (Gmail için uygulama şifresi gerekebilir)
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;   // Şifreleme türü
     $mail->Port       = 587;                              // SMTP portu
 
     // Alıcılar
-    $mail->setFrom('kaanaribilgidersler@mail.com', 'Kaan ArıBilgi');
-    $mail->addAddress('kaanpamukcu@gmail.com', 'Kaan Pamukcu');
+    $mail->setFrom('seninmailin@gmail.com', 'Ad Soyad');
+    $mail->addAddress('alicimail@example.com', 'Ad Soyad');
 
     // İçerik
     $mail->isHTML(true);                                  // HTML içerik
