@@ -1,0 +1,7 @@
+<?php
+$mesajSay = $db->prepare('select count(*) from mesajlar where durum="Okunmadı"');
+$mesajSay->execute();
+$mesajSayRow = $mesajSay->fetchColumn();
+?>
+
+<a href="mesajlar.php">Mesajlar <span class="badge bg-warning"><?php echo $mesajSayRow; ?></span> </a>

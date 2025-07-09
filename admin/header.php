@@ -5,7 +5,6 @@ session_start();
 if (!isset($_SESSION['kadi'])) {
     die('Giriş Yetkiniz Yoktur');
 }
-
 ?>
 
 <!DOCTYPE html>
