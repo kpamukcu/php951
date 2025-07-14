@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Tem 2025, 20:54:04
+-- Üretim Zamanı: 14 Tem 2025, 18:11:08
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -109,7 +109,7 @@ CREATE TABLE `dijital` (
 --
 
 INSERT INTO `dijital` (`id`, `console`, `analitik`, `pixel`) VALUES
-(1, 'Aribilgi564655-sdfsdfs-Aribilgi', 'UA-Aribilgi951-Y', 'FB-Aribilgi951');
+(3, 'asdasdasdasdasd', 'asdasdasdasdasd', 'asdasdasdasdasd');
 
 -- --------------------------------------------------------
 
@@ -219,11 +219,13 @@ CREATE TABLE `mesajlar` (
 --
 
 INSERT INTO `mesajlar` (`id`, `isim`, `soyisim`, `eposta`, `konu`, `mesaj`, `durum`) VALUES
-(1, 'Hayko', 'Cepkin', 'haykoilecos@hayko.com', 'Web Sitesi Fiyat Bilgisi', 'Web sitem berbat bana acil site yapar mısın? Ama Wordpress olmasın özel kodlansın. Her şeyi de bilirim.', 'Okunmadı'),
+(1, 'Hayko', 'Cepkin', 'haykoilecos@hayko.com', 'Web Sitesi Fiyat Bilgisi', 'Web sitem berbat bana acil site yapar mısın? Ama Wordpress olmasın özel kodlansın. Her şeyi de bilirim.', 'Okundu'),
 (2, 'Mahmut', 'Tuncer', 'mamo@mahmut.com', 'Sosyal Medya Hizmeti', 'Sosyal Medya Hizmeti almak istiyorum ama Instagram\'da hesabımda halay mendili satıcam.', 'Okundu'),
 (3, 'Yıldız', 'Tilbe', 'yildiizzz@gmail.com', 'Google Reklamları', 'Google Reklamları ile İbo beni adamların elinden kurtardı', 'Okundu'),
 (4, 'Ajdar', 'Bilmiyorum', 'ajdar@gmail.com', 'Muz Fiyatları', 'Muz Fiyatları ile ilgili bir web sitesi kaç kilo muz eder?', 'Okundu'),
-(6, 'Bülent ', 'Ersoy', 'bulooo@gmail.com', 'Rakı Siparişi Vermek İstiyorum', 'Fevkaladenin fevkinde bir site ama neden rakı satmıyorsun', 'Okunmadı');
+(6, 'Bülent ', 'Ersoy', 'bulooo@gmail.com', 'Rakı Siparişi Vermek İstiyorum', 'Fevkaladenin fevkinde bir site ama neden rakı satmıyorsun', 'Okundu'),
+(7, 'Bülent ', 'Ersoy', 'bulooo@gmail.com', 'wewefwef', 'aeradasdasdasdasd', 'Okundu'),
+(8, 'Bülent ', 'Ersoy', 'bulooo@gmail.com', 'Rakı Siparişi Vermek İstiyorum', 'saasdasdasdasda', 'Okunmadı');
 
 -- --------------------------------------------------------
 
@@ -463,7 +465,7 @@ ALTER TABLE `ayarlar`
 -- Tablo için AUTO_INCREMENT değeri `dijital`
 --
 ALTER TABLE `dijital`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `ebulten`
@@ -493,7 +495,7 @@ ALTER TABLE `kategoriler`
 -- Tablo için AUTO_INCREMENT değeri `mesajlar`
 --
 ALTER TABLE `mesajlar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `portfolyo`
