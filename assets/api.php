@@ -1,8 +1,9 @@
 <?php
 
 header('Content-Type:application/json'); //Kendi sitemiz içinde
+//header('authorization: asdflkdasf46gvs54dfg6asfnskıwbfd654rglj5465rgergıjhu'); //Şifreli Api vermek için ekle
 // header("Access-Control-Allow-Origin: *"); // Tüm domain'lerin bu API'ye erişmesine izin verir.
-header("Access-Control-Allow-Origin: https://frontend-sitem.com"); // Sadece belli bir domain’e izin vermek istersen
+header("Access-Control-Allow-Origin: https://aribilgi.com"); // Sadece belli bir domain’e izin vermek istersen
 require_once('baglan.php');
 
 $kategoriler = $db->prepare('select * from kategoriler');

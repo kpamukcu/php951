@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        fetch('http://localhost/php951/assets/api.php')
+            .then(res => res.json())
+            .then(veri =>{
+                for(kategoriler of veri){
+                    document.writeln(kategoriler.katAdi)
+                }                
+            })
+    </script>
+
+
+
+</body>
+</html>
